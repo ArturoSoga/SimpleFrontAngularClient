@@ -1,4 +1,4 @@
-# GN3FrontEnd
+# GN3FrontEnd | # Deveria eliminar Node_Modules y crear git ignore 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
