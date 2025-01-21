@@ -1,0 +1,75 @@
+<div >
+    <div class="content text-center pt-5">
+    <h2>{{this.data.title}}</h2>
+    </div>
+    <div class="p-5">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="pb-3">
+          <!-- <label class="form-control" for="EmplName">Nombre:</label> -->
+          <input class="form-control" id="EmplName" formControlName="EmplName" placeholder="Nombre">
+          <div *ngIf="!myForm.get('EmplName')?.valid">
+            Nombre es requerido.
+          </div>
+        </div>
+
+        <div class="pb-3" >
+            <!-- <label class="form-control" for="EmplName">Nombre:</label> -->
+            <input class="form-control" id="EmplSecondName" formControlName="EmplSecondName" placeholder="Apellido paterno">
+            <div *ngIf="!myForm.get('EmplSecondName')?.valid">
+              El apellido paterno
+            </div>
+          </div>
+
+          <div class="pb-3" >
+            <!-- <label class="form-control" for="EmplName">Nombre:</label> -->
+            <input class="form-control" id="EmplLastName" formControlName="EmplLastName" placeholder="Apellido materno" type="datetime">
+            <div *ngIf="!myForm.get('EmplLastName')?.valid">
+              El apellido materno es requerido
+            </div>
+          </div>
+          
+          <div class="pb-3" >
+            <!-- <label class="form-control" for="EmplName">Nombre:</label> -->
+            <input class="form-control" id="EmplHireDate" formControlName="EmplHireDate" placeholder="Fecha de ingreso" type="datetime">
+            <div *ngIf="!myForm.get('EmplHireDate')?.valid">
+              la fecha de ingreso es requerida.
+            </div>
+          </div>
+
+          <div class="pb-3" >
+            <!-- <label class="form-control" for="EmplName">Nombre:</label> -->
+            <input class="form-control" id="EmplBirthDate" formControlName="EmplBirthDate" placeholder="Fecha de nacimiento">
+            <div *ngIf="!myForm.get('EmplBirthDate')?.valid">
+              La fecha de nacimiento es requerida.
+            </div>
+          </div>
+
+          <div class="pb-3" >
+            <!-- <label class="form-control" for="EmplName">Nombre:</label> -->
+            <!-- <input class="form-control" id="DepaId" formControlName="DepaId" placeholder="Departamento" > -->
+            <div>
+                <!-- <label for="select">:</label> -->
+                <select id="DepaId" class="form-select" formControlName="DepaId" placeholder="Selecciona un departamento">
+                  <option value="" placeholder="Selecciona un departamento" disabled>Seleccione una opción</option>
+                  <option *ngFor="let Item of DepartmentList" 
+                  [value]="Item.depaId">{{ Item.depaDescripcion }}
+                </option>
+                </select>
+                <div *ngIf="myForm.get('selectedOption')?.valid">
+                  El departamento del empleado es requerido.
+                </div>
+              </div>
+          </div>
+
+          <div class="pb-3 form-check form-switch" >
+            <input class="form-check-input" id="EmplActive" formControlName="EmplActive"  type="checkbox">
+            <label class="form-check-label" for="EmplActive">Activo</label>
+            
+          </div>
+
+
+            <button class="btn btn-primary btn-lg float-end " type="submit" [disabled]="myForm.invalid">Guardar</button>
+
+      </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+
+<div class="container text-center center p-5 pb-1">
+<h2>Empleados</h2>
+</div>
+
+<div class="container center p-2 bg-image hover-overlay">
+  <div >
+  <button class=" btn button btn-primary"
+  (click)="add('Nuevo Empleado')">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<mat-list>
+  <div *ngFor="let item of EmployeesList">
+  <mat-list-item class=" overflow-scroll h-auto border border-dashed border-2 border-primary  m-1 rounded">
+    <div  >
+      <div class="row " >
+        <div class="col-sm d-flex p-2" >
+         <strong>/Clave:</strong>  {{item.emplId}}
+        </div>
+        <div class="col-sm d-flex p-2">
+        <strong>Nombre:</strong> {{item.emplName}} {{item.emplSecondName}}  {{item.emplLastName}} 
+        </div>
+        <div class="col-sm d-flex p-2">
+        <strong>Fecha de nacimiento:</strong> {{item.emplBirthDate}}
+        </div>
+        <div class="col-sm d-flex p-2">
+        <strong>Fecha de Contratacion:</strong> {{item.emplHireDate}}
+        </div>
+        <div class="col-sm   pull-right">
+        <div class=" container">
+
+            <button class=" btn button"
+            (click)="add('Editar Empleado',item)">
+              <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </mat-list-item>
+</div>
+
+  <mat-divider></mat-divider>
+
+</mat-list>
+</div>
